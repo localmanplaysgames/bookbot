@@ -1,8 +1,17 @@
+import sys
 from stats import count_book_words, sort_dictionary
 
 def main():
 
-    book_url = "books/frankenstein.txt"
+    arguments = sys.argv
+    
+    if len(arguments) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
+    book_url = arguments[1]
+
+    # book_url = "books/frankenstein.txt"
     word_count = count_book_words(book_url)
     letter_count = sort_dictionary(book_url)
 

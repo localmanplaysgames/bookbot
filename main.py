@@ -1,9 +1,25 @@
-from stats import count_book_words, count_book_letters
+from stats import count_book_words, sort_dictionary
 
 def main():
-    book_word_count = count_book_words("books/frankenstein.txt")
-    print(f"Word count: {book_word_count}")
-    book_letter_count = count_book_letters("books/frankenstein.txt")
-    print(book_letter_count)
+
+    book_url = "books/frankenstein.txt"
+    word_count = count_book_words(book_url)
+    letter_count = sort_dictionary(book_url)
+
+    print("============ BOOKBOT ============")
+    print(f"Analysing book found at {book_url}...")
+
+    print("----------- Word Count ----------")
+
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+
+    for letter, count in letter_count.items():
+        if letter.isalpha():
+            print(f"{letter}: {count}")
+        else:
+            pass
+            
+    print("============= END ===============")
 
 main()
